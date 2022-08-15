@@ -66,17 +66,17 @@
         <Param val="False" valType="bool" updates="constant" name="flip"/>
         <Param val="Open Sans" valType="str" updates="constant" name="font"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="0" valType="num" updates="constant" name="granularity"/>
+        <Param val="1" valType="num" updates="constant" name="granularity"/>
         <Param val="" valType="code" updates="None" name="initVal"/>
-        <Param val="" valType="list" updates="constant" name="labels"/>
+        <Param val="('totally disagree','disagree','neutral','agree','totally agree')" valType="list" updates="constant" name="labels"/>
         <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
         <Param val="slider" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, -0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="(0, -0.2)" valType="list" updates="constant" name="pos"/>
         <Param val="False" valType="bool" updates="constant" name="readOnly"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.0, 0.1)" valType="list" updates="constant" name="size"/>
+        <Param val="(1.0, 0.05)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -100,7 +100,7 @@
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Open Sans" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
@@ -112,7 +112,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Question" valType="str" updates="constant" name="text"/>
+        <Param val="$itemtext" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -123,12 +123,12 @@
     <Routine name="Instruction"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('itemtext', 'Ik had drukke gedachten')]), OrderedDict([('itemtext', 'Ik had snel wisselende gedachten')]), OrderedDict([('itemtext', 'Ik vond het moeilijk om mijn gedachten vast te houden')]), OrderedDict([('itemtext', 'Ik dacht aan anderen')]), OrderedDict([('itemtext', 'Ik verplaatste mij in anderen')]), OrderedDict([('itemtext', 'Ik dacht aan mensen die ik mag')]), OrderedDict([('itemtext', 'Ik dacht aan mijn gevoelens')]), OrderedDict([('itemtext', 'Ik dacht aan mijn gedrag')]), OrderedDict([('itemtext', 'Ik dacht aan mezelf')]), OrderedDict([('itemtext', 'Ik dacht aan dingen die ik moet doen')]), OrderedDict([('itemtext', 'I dacht aan het oplossen van problemen')]), OrderedDict([('itemtext', 'Ik dacht aan de toekomst')]), OrderedDict([('itemtext', 'Ik voelde me moe')]), OrderedDict([('itemtext', 'Ik voelde me slaperig')]), OrderedDict([('itemtext', 'Ik had moeite met wakker blijven')]), OrderedDict([('itemtext', 'Ik voelde me comfortabel')]), OrderedDict([('itemtext', 'Ik voelde me ontspannen')]), OrderedDict([('itemtext', 'Ik voelde me gelukkig')]), OrderedDict([('itemtext', 'Ik was mij bewust van mijn lichaam')]), OrderedDict([('itemtext', 'Ik lette op mijn ademhaling')]), OrderedDict([('itemtext', 'Ik lette op mijn hartslag')]), OrderedDict([('itemtext', 'Ik voelde me ziek')]), OrderedDict([('itemtext', 'Ik dacht aan mijn gezondheid')]), OrderedDict([('itemtext', 'Ik voelde pijn')]), OrderedDict([('itemtext', 'Ik stelde me gebeurtenissen voor')]), OrderedDict([('itemtext', 'Ik dacht in beelden')]), OrderedDict([('itemtext', 'Ik stelde me een bepaalde omgeving voor')]), OrderedDict([('itemtext', 'Ik voerde innerlijke gesprekken')]), OrderedDict([('itemtext', 'Ik dacht in woorden')]), OrderedDict([('itemtext', 'Ik praatte tegen mezelf in mijn gedachten')]), OrderedDict([('itemtext', 'Ik had moete met het herinneren van mijn gedachten')]), OrderedDict([('itemtext', 'Ik had moeite met het herinneren van mijn gevoelens')]), OrderedDict([('itemtext', 'Ik voelde me gemotiveerd om deel te nemen')]), OrderedDict([('itemtext', 'Ik had mijn ogen dicht')]), OrderedDict([('itemtext', 'Ik heb de stellingen goed kunnen beantwoorden')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="csv/questions_dutch.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="53" valType="num"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>

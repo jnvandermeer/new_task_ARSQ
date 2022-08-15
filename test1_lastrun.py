@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Wed 10 Aug 2022 09:39:19 AM CEST
+    on Wed 10 Aug 2022 11:59:36 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -83,19 +83,22 @@ ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
+# Initialize components for Routine "Instruction"
+InstructionClock = core.Clock()
+
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
 slider = visual.Slider(win=win, name='slider',
-    startValue=None, size=(1.0, 0.1), pos=(0, -0.4), units=None,
-    labels=None, ticks=(1, 2, 3, 4, 5), granularity=0.0,
+    startValue=None, size=(1.0, 0.05), pos=(0, -0.2), units=None,
+    labels=('totally disagree','disagree','neutral','agree','totally agree'), ticks=(1, 2, 3, 4, 5), granularity=1.0,
     style='rating', styleTweaks=(), opacity=None,
     color='LightGray', fillColor='Red', borderColor='White', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=0, readOnly=False)
 text = visual.TextStim(win=win, name='text',
-    text='Question',
+    text='',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -104,10 +107,61 @@ text = visual.TextStim(win=win, name='text',
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
+# ------Prepare to start Routine "Instruction"-------
+continueRoutine = True
+# update component parameters for each repeat
+# keep track of which components have finished
+InstructionComponents = []
+for thisComponent in InstructionComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+InstructionClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Instruction"-------
+while continueRoutine:
+    # get current time
+    t = InstructionClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=InstructionClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in InstructionComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instruction"-------
+for thisComponent in InstructionComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "Instruction" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=53.0, method='random', 
+trials = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=[None],
+    trialList=data.importConditions('csv/questions_dutch.csv'),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -127,6 +181,7 @@ for thisTrial in trials:
     continueRoutine = True
     # update component parameters for each repeat
     slider.reset()
+    text.setText(itemtext)
     # keep track of which components have finished
     trialComponents = [slider, text]
     for thisComponent in trialComponents:
@@ -204,7 +259,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 53.0 repeats of 'trials'
+# completed 1.0 repeats of 'trials'
 
 
 # Flip one final time so any remaining win.callOnFlip() 
