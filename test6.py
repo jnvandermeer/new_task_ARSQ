@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Mon 15 Aug 2022 06:25:12 PM CEST
+    on Tue 16 Aug 2022 10:59:46 AM CEST
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -185,6 +185,7 @@ text = visual.TextStim(win=win, name='text',
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
+key_resp_9 = keyboard.Keyboard()
 
 # Initialize components for Routine "i_nback"
 i_nbackClock = core.Clock()
@@ -305,7 +306,7 @@ key_resp_6 = keyboard.Keyboard()
 h_movie = visual.TextStim(win=win, name='h_movie',
     text='Movie',
     font='Open Sans',
-    pos=(0, 0.45), height=0..05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0.45), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
@@ -327,7 +328,7 @@ the_endClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text='This is the end of this run. Thank you!',
     font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -545,7 +546,7 @@ while continueRoutine:
         win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if key_resp.status == STARTED and not waitOnFlip:
-        theseKeys = key_resp.getKeys(keyList=['c'], waitRelease=False)
+        theseKeys = key_resp.getKeys(keyList=['s'], waitRelease=False)
         _key_resp_allKeys.extend(theseKeys)
         if len(_key_resp_allKeys):
             key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
@@ -651,7 +652,7 @@ while continueRoutine:
         win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if key_resp_2.status == STARTED and not waitOnFlip:
-        theseKeys = key_resp_2.getKeys(keyList=['c'], waitRelease=False)
+        theseKeys = key_resp_2.getKeys(keyList=['s'], waitRelease=False)
         _key_resp_2_allKeys.extend(theseKeys)
         if len(_key_resp_2_allKeys):
             key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
@@ -1007,23 +1008,23 @@ thisExp.addData('h_arsq.stopped', h_arsq.tStopRefresh)
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-qustions = data.TrialHandler(nReps=1.0, method='random', 
+questions = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('csv/questions_english.csv'),
-    seed=None, name='qustions')
-thisExp.addLoop(qustions)  # add the loop to the experiment
-thisQustion = qustions.trialList[0]  # so we can initialise stimuli with some values
-# abbreviate parameter names if possible (e.g. rgb = thisQustion.rgb)
-if thisQustion != None:
-    for paramName in thisQustion:
-        exec('{} = thisQustion[paramName]'.format(paramName))
+    seed=None, name='questions')
+thisExp.addLoop(questions)  # add the loop to the experiment
+thisQuestion = questions.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisQuestion.rgb)
+if thisQuestion != None:
+    for paramName in thisQuestion:
+        exec('{} = thisQuestion[paramName]'.format(paramName))
 
-for thisQustion in qustions:
-    currentLoop = qustions
-    # abbreviate parameter names if possible (e.g. rgb = thisQustion.rgb)
-    if thisQustion != None:
-        for paramName in thisQustion:
-            exec('{} = thisQustion[paramName]'.format(paramName))
+for thisQuestion in questions:
+    currentLoop = questions
+    # abbreviate parameter names if possible (e.g. rgb = thisQuestion.rgb)
+    if thisQuestion != None:
+        for paramName in thisQuestion:
+            exec('{} = thisQuestion[paramName]'.format(paramName))
     
     # ------Prepare to start Routine "question"-------
     continueRoutine = True
@@ -1032,8 +1033,11 @@ for thisQustion in qustions:
     text.setText(itemtext)
     if skip_this_routine:
         continueRoutine=False
+    key_resp_9.keys = []
+    key_resp_9.rt = []
+    _key_resp_9_allKeys = []
     # keep track of which components have finished
-    questionComponents = [slider, text]
+    questionComponents = [slider, text, key_resp_9]
     for thisComponent in questionComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1080,6 +1084,26 @@ for thisQustion in qustions:
         if slider.getRT() is not None:
             response_time = slider.getRT()
         
+        # *key_resp_9* updates
+        waitOnFlip = False
+        if key_resp_9.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            key_resp_9.frameNStart = frameN  # exact frame index
+            key_resp_9.tStart = t  # local t and not account for scr refresh
+            key_resp_9.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key_resp_9, 'tStartRefresh')  # time at next scr refresh
+            key_resp_9.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(key_resp_9.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_resp_9.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_resp_9.status == STARTED and not waitOnFlip:
+            theseKeys = key_resp_9.getKeys(keyList=['s'], waitRelease=False)
+            _key_resp_9_allKeys.extend(theseKeys)
+            if len(_key_resp_9_allKeys):
+                key_resp_9.keys = _key_resp_9_allKeys[-1].name  # just the last key pressed
+                key_resp_9.rt = _key_resp_9_allKeys[-1].rt
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1101,22 +1125,30 @@ for thisQustion in qustions:
     for thisComponent in questionComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    qustions.addData('slider.response', slider.getRating())
-    qustions.addData('slider.rt', slider.getRT())
-    qustions.addData('slider.started', slider.tStartRefresh)
-    qustions.addData('slider.stopped', slider.tStopRefresh)
-    qustions.addData('text.started', text.tStartRefresh)
-    qustions.addData('text.stopped', text.tStopRefresh)
+    questions.addData('slider.response', slider.getRating())
+    questions.addData('slider.rt', slider.getRT())
+    questions.addData('slider.started', slider.tStartRefresh)
+    questions.addData('slider.stopped', slider.tStopRefresh)
+    questions.addData('text.started', text.tStartRefresh)
+    questions.addData('text.stopped', text.tStopRefresh)
     if not skip_this_routine:
         ISI = core.StaticPeriod()
         ISI.start(0.2)  # start a period of 0.5s
         # stim.image = 'largeFile.bmp'  # could take some time
         ISI.complete()  # finish the 0.5s, taking into account one 60Hz frame
+    # check responses
+    if key_resp_9.keys in ['', [], None]:  # No response was made
+        key_resp_9.keys = None
+    questions.addData('key_resp_9.keys',key_resp_9.keys)
+    if key_resp_9.keys != None:  # we had a response
+        questions.addData('key_resp_9.rt', key_resp_9.rt)
+    questions.addData('key_resp_9.started', key_resp_9.tStartRefresh)
+    questions.addData('key_resp_9.stopped', key_resp_9.tStopRefresh)
     # the Routine "question" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 1.0 repeats of 'qustions'
+# completed 1.0 repeats of 'questions'
 
 
 # set up handler to look after randomisation of conditions etc
@@ -1684,7 +1716,7 @@ while continueRoutine:
         win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(key_resp_5.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if key_resp_5.status == STARTED and not waitOnFlip:
-        theseKeys = key_resp_5.getKeys(keyList=['y', 'n', 'left', 'right', 'space'], waitRelease=False)
+        theseKeys = key_resp_5.getKeys(keyList=['y', 'n', 'left', 'right', 'space', 's'], waitRelease=False)
         _key_resp_5_allKeys.extend(theseKeys)
         if len(_key_resp_5_allKeys):
             key_resp_5.keys = _key_resp_5_allKeys[-1].name  # just the last key pressed
@@ -1724,6 +1756,14 @@ if key_resp_5.keys != None:  # we had a response
 thisExp.addData('key_resp_5.started', key_resp_5.tStartRefresh)
 thisExp.addData('key_resp_5.stopped', key_resp_5.tStopRefresh)
 thisExp.nextEntry()
+skip_this_routine=False
+
+if key_resp_5.keys is not None:
+    if 's' == key_resp_5.keys:
+        skip_this_routine=True
+
+# skip_this_routine=False
+
 # the Routine "nb_end" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -1733,6 +1773,8 @@ continueRoutine = True
 key_resp_6.keys = []
 key_resp_6.rt = []
 _key_resp_6_allKeys = []
+if skip_this_routine:
+    continueRoutine=False
 # keep track of which components have finished
 i_movieComponents = [text_6, key_resp_6, h_movie]
 for thisComponent in i_movieComponents:
@@ -1829,11 +1871,11 @@ if key_resp_6.keys != None:  # we had a response
 thisExp.addData('key_resp_6.started', key_resp_6.tStartRefresh)
 thisExp.addData('key_resp_6.stopped', key_resp_6.tStopRefresh)
 thisExp.nextEntry()
-skip_this_routine=False
-
-if key_resp_8.keys is not None:
-    if 's' == key_resp_8.keys:
-        skip_this_routine=True
+# skip_this_routine=False
+# 
+# if key_resp_6.keys is not None:
+#     if 's' == key_resp_6.keys:
+#        skip_this_routine=True
 
 # skip_this_routine=False
 
@@ -1941,6 +1983,7 @@ routineTimer.reset()
 
 # ------Prepare to start Routine "the_end"-------
 continueRoutine = True
+routineTimer.add(2.000000)
 # update component parameters for each repeat
 key_resp_7.keys = []
 key_resp_7.rt = []
@@ -1961,7 +2004,7 @@ the_endClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
 # -------Run Routine "the_end"-------
-while continueRoutine:
+while continueRoutine and routineTimer.getTime() > 0:
     # get current time
     t = the_endClock.getTime()
     tThisFlip = win.getFutureFlipTime(clock=the_endClock)
@@ -1999,6 +2042,14 @@ while continueRoutine:
         waitOnFlip = True
         win.callOnFlip(key_resp_7.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(key_resp_7.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp_7.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > key_resp_7.tStartRefresh + 2-frameTolerance:
+            # keep track of stop time/frame for later
+            key_resp_7.tStop = t  # not accounting for scr refresh
+            key_resp_7.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(key_resp_7, 'tStopRefresh')  # time at next scr refresh
+            key_resp_7.status = FINISHED
     if key_resp_7.status == STARTED and not waitOnFlip:
         theseKeys = key_resp_7.getKeys(keyList=['y', 'n', 'left', 'right', 'space'], waitRelease=False)
         _key_resp_7_allKeys.extend(theseKeys)
@@ -2040,8 +2091,6 @@ if key_resp_7.keys != None:  # we had a response
 thisExp.addData('key_resp_7.started', key_resp_7.tStartRefresh)
 thisExp.addData('key_resp_7.stopped', key_resp_7.tStopRefresh)
 thisExp.nextEntry()
-# the Routine "the_end" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
